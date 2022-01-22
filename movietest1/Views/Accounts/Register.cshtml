@@ -1,0 +1,90 @@
+﻿@model movietest1.ViewModels.RegisterViewModel
+<script src="http://parsleyjs.org/dist/parsley.min.js"></script>
+
+<link rel="stylesheet" href="http://parsleyjs.org/src/parsley.css">
+<!-- Registration-form -->
+<div class="registration-form">
+    <div class="container">
+        <div class="dreamcrub">
+            <ul class="breadcrumbs">
+                <li class="home">
+                    <a href="@Url.Action("Index","Home")" title="Go to Home Page">Home</a>&nbsp;
+                    <span>&gt;</span>
+                </li>
+                <li class="women">
+                    Registration
+                </li>
+            </ul>
+
+            
+
+            <div class="clearfix"></div>
+        </div>
+        <span >@ViewBag.Status</span>
+        <h2>Registration</h2>
+        <div class="registration-grids">
+            <div class="reg-form">
+                <div class="reg">
+                    <p>Welcome, please enter the following details to continue.</p>
+                    <p>If you have previously registered with us, <a href="@Url.Action("Login","Accounts")">click here</a></p>
+                    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new {id="loginForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <ul>
+                            <li class="text-info">@Html.DisplayNameFor(model => model.FullName):</li>
+                            <li>@Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control",required="" } })</li>
+                            
+                        </ul>
+
+                        <ul>
+                            <li class="text-info">@Html.DisplayNameFor(model => model.Email): </li>
+                            <li>@Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", required = "" } })</li>
+                            
+                        </ul>
+                        <ul>
+                            <li class="text-info">@Html.DisplayNameFor(model => model.Password): </li>
+                            <li>@Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", required = "" } })</li>
+                            
+                        </ul>
+                        <ul>
+                            <li class="text-info">Re-enter Password:</li>
+                   <li>@Html.EditorFor(model => model.ConfirmPassword, new{ htmlAttributes = new { @class = "form-control",required=""} })</li>
+                            
+                        </ul>
+
+                        @Html.HiddenFor(model => model.Role,
+                new { id = "hiddenRole", Value = "user" })
+                        
+                        <input type="submit" value="REGISTER NOW">
+                        <p class="click">By clicking this button, you are agree to my  <a href="#">Policy Terms and Conditions.</a></p>
+                    }
+                </div>
+            </div>
+            <div class="reg-right">
+                <h3>Completely Free Account</h3>
+                <div class="strip"></div>
+                <p>
+                    Pellentesque neque leo, dictum sit amet accumsan non, dignissim ac mauris. Mauris rhoncus, lectus tincidunt tempus aliquam, odio
+                    libero tincidunt metus, sed euismod elit enim ut mi. Nulla porttitor et dolor sed condimentum. Praesent porttitor lorem dui, in pulvinar enim rhoncus vitae. Curabitur tincidunt, turpis ac lobortis hendrerit, ex elit vestibulum est, at faucibus erat ligula non neque.
+                </p>
+                <h3 class="lorem">Lorem ipsum dolor.</h3>
+                <div class="strip"></div>
+                <p>Tincidunt metus, sed euismod elit enim ut mi. Nulla porttitor et dolor sed condimentum. Praesent porttitor lorem dui, in pulvinar enim rhoncus vitae. Curabitur tincidunt, turpis ac lobortis hendrerit, ex elit vestibulum est, at faucibus erat ligula non neque.</p>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!-- registration-form -->
+<script type="text/javascript">
+    $(function () {
+        $('#loginForm').parsley().on('field:validated', function () {
+            var ok = $('.parsley-error').length === 0;
+            $('.bs-callout-info').toggleClass('hidden', !ok);
+            $('.bs-callout-warning').toggleClass('hidden', ok);
+        });
+
+    });
+   
+</script>

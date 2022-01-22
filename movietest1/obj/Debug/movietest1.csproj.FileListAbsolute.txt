@@ -1,0 +1,106 @@
+H:\_mvc learning\movietest1\movietest1\bin\movietest1.dll.config
+H:\_mvc learning\movietest1\movietest1\bin\movietest1.dll
+H:\_mvc learning\movietest1\movietest1\bin\movietest1.pdb
+H:\_mvc learning\movietest1\movietest1\bin\Antlr3.Runtime.dll
+H:\_mvc learning\movietest1\movietest1\bin\Microsoft.Web.Infrastructure.dll
+H:\_mvc learning\movietest1\movietest1\bin\Newtonsoft.Json.dll
+H:\_mvc learning\movietest1\movietest1\bin\System.Web.Helpers.dll
+H:\_mvc learning\movietest1\movietest1\bin\System.Web.Mvc.dll
+H:\_mvc learning\movietest1\movietest1\bin\System.Web.Optimization.dll
+H:\_mvc learning\movietest1\movietest1\bin\System.Web.Razor.dll
+H:\_mvc learning\movietest1\movietest1\bin\System.Web.WebPages.Deployment.dll
+H:\_mvc learning\movietest1\movietest1\bin\System.Web.WebPages.dll
+H:\_mvc learning\movietest1\movietest1\bin\System.Web.WebPages.Razor.dll
+H:\_mvc learning\movietest1\movietest1\bin\WebGrease.dll
+H:\_mvc learning\movietest1\movietest1\bin\System.Web.Helpers.xml
+H:\_mvc learning\movietest1\movietest1\bin\System.Web.Mvc.xml
+H:\_mvc learning\movietest1\movietest1\bin\System.Web.Optimization.xml
+H:\_mvc learning\movietest1\movietest1\bin\System.Web.Razor.xml
+H:\_mvc learning\movietest1\movietest1\bin\System.Web.WebPages.xml
+H:\_mvc learning\movietest1\movietest1\bin\System.Web.WebPages.Deployment.xml
+H:\_mvc learning\movietest1\movietest1\bin\System.Web.WebPages.Razor.xml
+H:\_mvc learning\movietest1\movietest1\bin\Antlr3.Runtime.pdb
+H:\_mvc learning\movietest1\movietest1\bin\Newtonsoft.Json.xml
+H:\_mvc learning\movietest1\movietest1\obj\Debug\movietest1.dll
+H:\_mvc learning\movietest1\movietest1\obj\Debug\movietest1.pdb
+H:\_mvc learning\movietest1\movietest1\obj\Debug\movietest1.csprojResolveAssemblyReference.cache
+H:\_mvc learning\movietest1\movietest1\bin\EntityFramework.dll
+H:\_mvc learning\movietest1\movietest1\bin\EntityFramework.SqlServer.dll
+H:\_mvc learning\movietest1\movietest1\bin\EntityFramework.xml
+H:\_mvc learning\movietest1\movietest1\bin\EntityFramework.SqlServer.xml
+H:\_mvc learning\movietest1\movietest1\obj\Debug\movietest1.Migrations.initialMigration.resources
+H:\_mvc learning\movietest1\movietest1\obj\Debug\movietest1.csproj.GenerateResource.Cache
+H:\MovieReviewGitHub\movietest1\bin\movietest1.dll.config
+H:\MovieReviewGitHub\movietest1\bin\movietest1.dll
+H:\MovieReviewGitHub\movietest1\bin\movietest1.pdb
+H:\MovieReviewGitHub\movietest1\bin\Antlr3.Runtime.dll
+H:\MovieReviewGitHub\movietest1\bin\EntityFramework.dll
+H:\MovieReviewGitHub\movietest1\bin\EntityFramework.SqlServer.dll
+H:\MovieReviewGitHub\movietest1\bin\Microsoft.Web.Infrastructure.dll
+H:\MovieReviewGitHub\movietest1\bin\Newtonsoft.Json.dll
+H:\MovieReviewGitHub\movietest1\bin\System.Web.Helpers.dll
+H:\MovieReviewGitHub\movietest1\bin\System.Web.Mvc.dll
+H:\MovieReviewGitHub\movietest1\bin\System.Web.Optimization.dll
+H:\MovieReviewGitHub\movietest1\bin\System.Web.Razor.dll
+H:\MovieReviewGitHub\movietest1\bin\System.Web.WebPages.Deployment.dll
+H:\MovieReviewGitHub\movietest1\bin\System.Web.WebPages.dll
+H:\MovieReviewGitHub\movietest1\bin\System.Web.WebPages.Razor.dll
+H:\MovieReviewGitHub\movietest1\bin\WebGrease.dll
+H:\MovieReviewGitHub\movietest1\bin\EntityFramework.xml
+H:\MovieReviewGitHub\movietest1\bin\EntityFramework.SqlServer.xml
+H:\MovieReviewGitHub\movietest1\bin\System.Web.Helpers.xml
+H:\MovieReviewGitHub\movietest1\bin\System.Web.Mvc.xml
+H:\MovieReviewGitHub\movietest1\bin\System.Web.Optimization.xml
+H:\MovieReviewGitHub\movietest1\bin\System.Web.Razor.xml
+H:\MovieReviewGitHub\movietest1\bin\System.Web.WebPages.xml
+H:\MovieReviewGitHub\movietest1\bin\System.Web.WebPages.Deployment.xml
+H:\MovieReviewGitHub\movietest1\bin\System.Web.WebPages.Razor.xml
+H:\MovieReviewGitHub\movietest1\bin\Antlr3.Runtime.pdb
+H:\MovieReviewGitHub\movietest1\bin\Newtonsoft.Json.xml
+H:\MovieReviewGitHub\movietest1\obj\Debug\movietest1.Migrations.initialMigration.resources
+H:\MovieReviewGitHub\movietest1\obj\Debug\movietest1.Migrations.addedmovieclass.resources
+H:\MovieReviewGitHub\movietest1\obj\Debug\movietest1.Migrations.correctedmovie.resources
+H:\MovieReviewGitHub\movietest1\obj\Debug\movietest1.Migrations.addedImagetoMovie.resources
+H:\MovieReviewGitHub\movietest1\obj\Debug\movietest1.Migrations.addedrequiredonMovie.resources
+H:\MovieReviewGitHub\movietest1\obj\Debug\movietest1.Migrations.addedDownloadlinktoMovie.resources
+H:\MovieReviewGitHub\movietest1\obj\Debug\movietest1.csproj.GenerateResource.Cache
+H:\MovieReviewGitHub\movietest1\obj\Debug\movietest1.dll
+H:\MovieReviewGitHub\movietest1\obj\Debug\movietest1.pdb
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\movietest1.dll.config
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\movietest1.dll
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\movietest1.pdb
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\Antlr3.Runtime.dll
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\EntityFramework.dll
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\EntityFramework.SqlServer.dll
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\Microsoft.Web.Infrastructure.dll
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\Newtonsoft.Json.dll
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\System.Web.Helpers.dll
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\System.Web.Mvc.dll
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\System.Web.Optimization.dll
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\System.Web.Razor.dll
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\System.Web.WebPages.Deployment.dll
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\System.Web.WebPages.dll
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\System.Web.WebPages.Razor.dll
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\WebGrease.dll
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\EntityFramework.xml
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\EntityFramework.SqlServer.xml
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\System.Web.Helpers.xml
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\System.Web.Mvc.xml
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\System.Web.Optimization.xml
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\System.Web.Razor.xml
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\System.Web.WebPages.xml
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\System.Web.WebPages.Deployment.xml
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\System.Web.WebPages.Razor.xml
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\Antlr3.Runtime.pdb
+H:\_mvc learning\MovieReviewGitHub\movietest1\bin\Newtonsoft.Json.xml
+H:\_mvc learning\MovieReviewGitHub\movietest1\obj\Debug\movietest1.Migrations.initialMigration.resources
+H:\_mvc learning\MovieReviewGitHub\movietest1\obj\Debug\movietest1.Migrations.addedmovieclass.resources
+H:\_mvc learning\MovieReviewGitHub\movietest1\obj\Debug\movietest1.Migrations.correctedmovie.resources
+H:\_mvc learning\MovieReviewGitHub\movietest1\obj\Debug\movietest1.Migrations.addedImagetoMovie.resources
+H:\_mvc learning\MovieReviewGitHub\movietest1\obj\Debug\movietest1.Migrations.addedrequiredonMovie.resources
+H:\_mvc learning\MovieReviewGitHub\movietest1\obj\Debug\movietest1.Migrations.addedDownloadlinktoMovie.resources
+H:\_mvc learning\MovieReviewGitHub\movietest1\obj\Debug\movietest1.csproj.GenerateResource.Cache
+H:\_mvc learning\MovieReviewGitHub\movietest1\obj\Debug\movietest1.dll
+H:\_mvc learning\MovieReviewGitHub\movietest1\obj\Debug\movietest1.pdb
+H:\_mvc learning\MovieReviewGitHub\movietest1\obj\Debug\movietest1.Migrations.addednamepositionAndIndustry.resources
+H:\_mvc learning\MovieReviewGitHub\movietest1\obj\Debug\movietest1.Migrations.addedPostTime.resources

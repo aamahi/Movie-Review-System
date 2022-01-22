@@ -1,0 +1,85 @@
+﻿@model IEnumerable<movietest1.Models.Movie>
+@{
+    ViewBag.Title = "ShowList";
+}
+<link href="~/Content/toastr.min.css" rel="stylesheet" />
+<script src="~/Scripts/toastr.min.js"></script>
+<span class="danger">
+    @ViewBag.Error
+</span>
+<div class="registration-form">
+    <div class="container">
+        <div class="registration-grids">
+            <div class="">
+                <div class="reg">
+                    <h4>Choose from the list to update or delete</h4>
+                    @{
+                        if (@ViewBag.message == "addSuccess")
+                        {
+
+                            <script>toastr.success('Movie Edited Successfully', 'Successful');</script>
+                        }
+                    }
+
+                    @foreach (var item in Model)
+                     {
+                        <div class="row" style="padding: 10px; margin-bottom: 50px; ">
+                            <div class="col-sm-4">
+                                <img src="@item.image" height="200" width="200" alt="" onerror="this.onerror=null;this.src='/images/Movies/noimg.png';" />
+                            </div>
+                            <div class="col-sm-8">
+                                <table class="table">
+                                    <tr>
+                                        <td class="col-md-2" >Title:</td>
+                                        <td>@item.Title</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-2">Genre:</td>
+                                        <td>@item.Genre</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-2">Short Description:</td>
+                                         @{
+                                        var c = item.Description;
+                          var someString=movietest1.OtherClasses.StringExt.Truncate(c, 10);
+                                         //actually we are truncating the description to                show less data
+                                         }
+                                        <td>@c</td>
+                                    </tr>
+                                    
+                                </table>
+                                <div class="btn-block ">
+                                   
+       @using (Html.BeginForm("EditMovie", "Movies", new { id = item.key }, FormMethod.Get))
+           {
+                @Html.AntiForgeryToken()
+               <button type="submit" class="btn btn-default " style="width:120px" >Edit</button>
+           }
+       @using (Html.BeginForm("Delete", "Movies", new { id = item.key }, FormMethod.Post))
+          {
+              @Html.AntiForgeryToken()
+              <button type="submit" class="btn btn-danger " style="width:120px" onclick="return confirm('Are you sure you want to delete?');">Delete</button>
+          }
+
+
+                                </div>
+                                
+                            </div>
+                       
+                        </div>
+
+                    }
+                    
+
+                    
+
+
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+
+
+        </div>
+    </div>

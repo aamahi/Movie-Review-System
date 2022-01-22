@@ -1,0 +1,315 @@
+﻿@model movietest1.Models.Movie
+@using movietest1.OtherClasses
+@{
+    ViewBag.Title = Model.Title;
+}
+<!-- content-section-starts -->
+<div class="container">
+    <div class="products-page">
+        <div class="products">
+            <div class="product-listy">
+                <h2>Movie Categories</h2>
+                <ul class="product-list">
+                    <li><a href="#">Category 1</a></li>
+                    <li><a href="#">Category 2</a></li>
+                    <li><a href="#">Category 3</a></li>
+                    <li><a href="#">Category 4</a></li>
+                    <li><a href="#">Category 5</a></li>
+
+                </ul>
+            </div>
+            <div class="latest-bis">
+                <img src="~/images/l4.jpg" class="img-responsive" alt="" />
+                <div class="offer">
+                    <p>40%</p>
+                    <small>Top Offer</small>
+                </div>
+            </div>
+            <div class="tags">
+                <h4 class="tag_head">Tags Widget</h4>
+                <ul class="tags_links">
+                    <li><a href="#">Kitesurf</a></li>
+                    <li><a href="#">Super</a></li>
+                    <li><a href="#">Duper</a></li>
+                    <li><a href="#">Theme</a></li>
+                    <li><a href="#">Men</a></li>
+                    <li><a href="#">Women</a></li>
+                    <li><a href="#">Equipment</a></li>
+                    <li><a href="#">Best</a></li>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">Men</a></li>
+                    <li><a href="#">Apparel</a></li>
+                    <li><a href="#">Super</a></li>
+                    <li><a href="#">Duper</a></li>
+                    <li><a href="#">Theme</a></li>
+                    <li><a href="#">Responsive</a></li>
+                    <li><a href="#">Women</a></li>
+                    <li><a href="#">Equipment</a></li>
+                </ul>
+
+            </div>
+
+        </div>
+        <div class="new-product">
+            <div class="col-md-5 zoom-grid">
+                <div class="flexslider">
+                    @*<img src="~/images/si.jpg" data-imagezoom="true" class="img-responsive" alt="" />*@
+                    <img class="img-responsive" style="height:500px;"
+                         src="@Model.image" data-imagezoom="true" alt="" />
+                    @*Here was image slider code*@
+                </div>
+            </div>
+            <div class="col-md-7 dress-info">
+                <div class="dress-name">
+                    <h3>@Html.DisplayFor(model => model.Title)</h3>
+                   
+                    <div class="clearfix"></div>
+                    @{
+                        var c = Model.Description;
+                        var someString = StringExt.Truncate(c, 10);
+                     //actually we are truncating the description to show less data
+                    }
+                    <p>@c</p> @*its a short descrition*@
+                    
+                </div>
+                <div class="span span1">
+                    <p class="left">Release Date</p>
+                    <p class="right">@Model.ReleaseDate</p>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="span span2">
+                    <p class="left">Genre</p>
+                    <p class="right">@Model.Genre</p>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="span span3">
+                    <p class="left">Property</p>
+                    <p class="right">Description</p>
+                    <div class="clearfix"></div>
+                </div>
+                
+                <div class="purchase">
+                    @{
+                        if (Model.DownloadLink == null)
+                        {
+                            <span>Downloaded Link will be added Soon</span>
+                        }
+                        else
+                        {
+                            <a href=@Model.DownloadLink >Download Now</a>
+                        }
+                    }
+                    
+                    
+                    <div class="social-icons">
+                        <ul>
+                            <li><a class="facebook1" href="#"></a></li>
+                            <li><a class="twitter1" href="#"></a></li>
+                            <li><a class="googleplus1" href="#"></a></li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <script src="~/Scripts/imagezoom.js"></script>
+
+                <!-- FlexSlider -->
+                @*<script defer src="js/jquery.flexslider.js"></script>*@
+                <script defer src="~/Scripts/jquery.flexslider.js"></script>
+                <script>
+						// Can also be used with $(document).ready()
+						$(window).load(function() {
+						  $('.flexslider').flexslider({
+							animation: "slide",
+							controlNav: "thumbnails"
+						  });
+						});
+                </script>
+            </div>
+            <div class="clearfix"></div>
+            <div class="reviews-tabs">
+                <!-- Main component for a primary marketing message or call to action -->
+                <ul class="nav nav-tabs responsive hidden-xs hidden-sm" id="myTab">
+                    <li class="test-class active"><a class="deco-none misc-class" href="#how-to"> More Information</a></li>
+                    <li class="test-class"><a href="#features">Casts</a></li>
+                    <li class="test-class"><a class="deco-none" href="#source">Reviews (7)</a></li>
+                </ul>
+
+                <div class="tab-content responsive hidden-xs hidden-sm">
+                    <div class="tab-pane active" id="how-to">
+                        <p class="tab-text">@Model.Description</p>
+                    </div>
+                    <div class="tab-pane" id="features">
+                        <p class="tab-text">@Model.Casts</p>
+                        
+                    </div>
+                    <div class="tab-pane" id="source">
+                        <div class="response">
+                            <div class="media response-info">
+                                <div class="media-left response-text-left">
+                                    <a href="#">
+                                        <img class="media-object" src="~/images/icon1.png" alt="" />
+                                    </a>
+                                    <h5><a href="#">Username</a></h5>
+                                </div>
+                                <div class="media-body response-text-right">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available,
+                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    </p>
+                                    <ul>
+                                        <li>MARCH 21, 2015</li>
+                                        <li><a href="single.html">Reply</a></li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="media response-info">
+                                <div class="media-left response-text-left">
+                                    <a href="#">
+                                        <img class="media-object" src="~/images/icon1.png" alt="" />
+                                    </a>
+                                    <h5><a href="#">Username</a></h5>
+                                </div>
+                                <div class="media-body response-text-right">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available,
+                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    </p>
+                                    <ul>
+                                        <li>MARCH 26, 2054</li>
+                                        <li><a href="single.html">Reply</a></li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="media response-info">
+                                <div class="media-left response-text-left">
+                                    <a href="#">
+                                        <img class="media-object" src="~/images/icon1.png" alt="" />
+                                    </a>
+                                    <h5><a href="#">Username</a></h5>
+                                </div>
+                                <div class="media-body response-text-right">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available,
+                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    </p>
+                                    <ul>
+                                        <li>MAY 25, 2015</li>
+                                        <li><a href="single.html">Reply</a></li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="media response-info">
+                                <div class="media-left response-text-left">
+                                    <a href="#">
+                                        <img class="media-object" src="~/images/icon1.png" alt="" />
+                                    </a>
+                                    <h5><a href="#">Username</a></h5>
+                                </div>
+                                <div class="media-body response-text-right">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available,
+                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    </p>
+                                    <ul>
+                                        <li>FEB 13, 2015</li>
+                                        <li><a href="single.html">Reply</a></li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="media response-info">
+                                <div class="media-left response-text-left">
+                                    <a href="#">
+                                        <img class="media-object" src="~/images/icon1.png" alt="" />
+                                    </a>
+                                    <h5><a href="#">Username</a></h5>
+                                </div>
+                                <div class="media-body response-text-right">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available,
+                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    </p>
+                                    <ul>
+                                        <li>JAN 28, 2015</li>
+                                        <li><a href="single.html">Reply</a></li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="media response-info">
+                                <div class="media-left response-text-left">
+                                    <a href="#">
+                                        <img class="media-object" src="~/images/icon1.png" alt="" />
+                                    </a>
+                                    <h5><a href="#">Username</a></h5>
+                                </div>
+                                <div class="media-body response-text-right">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available,
+                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    </p>
+                                    <ul>
+                                        <li>APR 18, 2015</li>
+                                        <li><a href="single.html">Reply</a></li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="media response-info">
+                                <div class="media-left response-text-left">
+                                    <a href="#">
+                                        <img class="media-object" src="~/images/icon1.png" alt="" />
+                                    </a>
+                                    <h5><a href="#">Username</a></h5>
+                                </div>
+                                <div class="media-body response-text-right">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available,
+                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    </p>
+                                    <ul>
+                                        <li>DEC 25, 2014</li>
+                                        <li><a href="single.html">Reply</a></li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+@*Here was related products section*@
+<!-- content-section-ends -->
+@*Here was news letter and footer*@
+
+<script src="~/Scripts/responsive-tabs.js"></script>
+<script type="text/javascript">
+      $( '#myTab a' ).click( function ( e ) {
+        e.preventDefault();
+        $( this ).tab( 'show' );
+      } );
+
+      $( '#moreTabs a' ).click( function ( e ) {
+        e.preventDefault();
+        $( this ).tab( 'show' );
+      } );
+
+      ( function( $ ) {
+          // Test for making sure event are maintained
+          $( '.js-alert-test' ).click( function () {
+            alert( 'Button Clicked: Event was maintained' );
+          } );
+          fakewaffle.responsiveTabs( [ 'xs', 'sm' ] );
+      } )( jQuery );
+
+</script>
+

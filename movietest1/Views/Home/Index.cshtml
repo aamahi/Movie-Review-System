@@ -1,0 +1,143 @@
+﻿@model IEnumerable<movietest1.Models.Movie>
+@{
+    ViewBag.Title = "Home";
+}
+
+    <div class="banner">
+        <div class="container">
+            <div class="banner-bottom">
+                <div class="banner-bottom-left">
+                    <h2>E<br>N<br>J<br>O<br>Y</h2>
+                </div>
+                <div class="banner-bottom-right">
+                    <div class="callbacks_container">
+                        <ul class="rslides" id="slider4">
+                            <li>
+                                <div class="banner-info">
+                                    <h3 style="color:whitesmoke;">Fully Entertainment</h3>
+                                    <p style="color:whitesmoke;">Entertainment at its Best...</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="banner-info">
+                                    <h3 style="color:whitesmoke;">Bluray Quality</h3>
+                                    <p style="color:whitesmoke;">Ultimate Entertainment with Crystal Clear Video...</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="banner-info">
+                                    <h3 style="color:whitesmoke;">Enjoy with All</h3>
+                                    <p style="color:whitesmoke;">Latest Movies Packed With Full Entertainment...</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--banner-->
+                    @*<script src="js/responsiveslides.min.js"></script>*@
+                    <script src="~/Scripts/responsiveslides.min.js"></script>
+                    <script>
+			    // You can also use "$(window).load(function() {"
+			    $(function () {
+			      // Slideshow 4
+			      $("#slider4").responsiveSlides({
+			        auto: true,
+			        pager:true,
+			        nav:false,
+			        speed: 500,
+			        namespace: "callbacks",
+			        before: function () {
+			          $('.events').append("<li>before event fired.</li>");
+			        },
+			        after: function () {
+			          $('.events').append("<li>after event fired.</li>");
+			        }
+			      });
+
+			    });
+                    </script>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="shop">
+                <a href="#">Download Latest Movies</a>
+            </div>
+        </div>
+    </div>
+    <!-- content-section-starts-here -->
+    <div class="container">
+    <div class="main-content">
+
+        <div class="products-grid">
+            <header>
+                <h3 class="head text-center">Latest Movie Uploads</h3>
+            </header>
+            @foreach (var item in Model)
+            {
+
+                <div class="col-md-3 product simpleCart_shelfItem text-center">
+                    <a href="@Url.Action("MovieDetails", "Movies", new { id = item.key })"><img src="@item.image" height="250" width="100" alt="" onerror="this.onerror=null;this.src='/images/Movies/noimg.png';" /></a>
+                    <div class="mask">
+                        @{
+                var x = "#" + item.key;
+                //this is for assigning data target to the button ,id will be post key
+                        }
+                        <a href="#" data-toggle="modal" data-target=@x>Quick View</a>
+                        @*So we are passing actually #id where id is assigned as the key value of the post*@
+                    </div>
+                    @Html.ActionLink(item.Title, "MovieDetails", new { id = item.key }, htmlAttributes: new { @class = "product_name" })
+                    @*<a class="product_name" href="single.html">Sed ut perspiciatis</a>*@
+                    <p><a class="item_add" href="#"><i></i> <span class="item_price">$329</span></a></p>
+                </div>
+
+                            <!-- Start of Modal -->
+                      <!-- Modal -->
+                <div class="modal fade" id=@item.key role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">@item.Title</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <img src="@item.image" alt="" onerror="this.onerror=null;this.src='/images/Movies/noimg.png';" class="img-responsive" />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <ul class="list-inline">
+                                            <li> <b>Genre :</b> </li>
+                                            <li> @item.Genre</li>
+                                        </ul>
+                                        <ul class="list-inline">
+                                            <li> <b>Casts:</b> </li>
+                                            <li> @item.Casts</li>
+                                        </ul>
+                                        <ul class="list-inline">
+                                            <li> <b>Year of Release:</b> </li>
+                                            <li> @item.ReleaseDate</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            <!-- End of Modal -->
+            }
+            
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+</div>
+    
+    <!-- content-section-ends-here -->
+    

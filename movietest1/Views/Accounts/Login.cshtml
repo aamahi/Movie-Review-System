@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+@model movietest1.ViewModels.LoginViewModel
+<script src="http://parsleyjs.org/dist/parsley.min.js"></script>
+
+<link rel="stylesheet" href="http://parsleyjs.org/src/parsley.css">
+<div class="content">
+    <div class="container">
+        <div class="login-page">
+            <div class="dreamcrub">
+                <ul class="breadcrumbs">
+                    <li class="home">
+                        <a href="@Url.Action("Index","Home")" title="Go to Home Page">Home</a>&nbsp;
+                        <span>&gt;</span>
+                    </li>
+                    <li class="women">
+                        Login
+                    </li>
+                </ul>
+                
+                <div class="clearfix"></div>
+            </div>
+            <div class="account_grid">
+                <div class="col-md-6 login-left wow fadeInLeft" data-wow-delay="0.4s">
+                    <h2>NEW CUSTOMERS</h2>
+                    <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
+                    <a class="acount-btn" href="@Url.Action("Register","Accounts")">Create an Account</a>
+                </div>
+                <div class="col-md-6 login-right wow fadeInRight" data-wow-delay="0.4s">
+                    <h3>REGISTERED CUSTOMERS</h3>
+                    <h4>@ViewBag.Status</h4>
+                    <p>If you have an account with us, please log in.</p>
+                    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { id="loginForm"}))
+                    {
+                        <div>
+                            <span>@Html.DisplayNameFor(model => model.Email)<label>*</label></span>
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", required="" ,type="email"})
+                        </div>
+                        <div>
+                            <span>@Html.DisplayNameFor(model => model.Password)<label>*</label></span>
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", required = "" } })
+                        </div>
+                        <a class="forgot" href="#">Forgot Your Password?</a>
+                        <input type="submit" value="Login">
+                    }
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#loginForm').parsley().on('field:validated', function () {
+            var ok = $('.parsley-error').length === 0;
+            $('.bs-callout-info').toggleClass('hidden', !ok);
+            $('.bs-callout-warning').toggleClass('hidden', ok);
+        });
+
+    });
+    
+</script>

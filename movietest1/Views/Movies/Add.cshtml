@@ -1,0 +1,186 @@
+﻿@model movietest1.Models.Movie
+@using movietest1.OtherClasses
+@{
+    ViewBag.Title = "Add a Movie";
+}
+<script src="http://parsleyjs.org/dist/parsley.min.js"></script>
+
+<link rel="stylesheet" href="http://parsleyjs.org/src/parsley.css">
+<link href="~/Content/toastr.min.css" rel="stylesheet" />
+<script src="~/Scripts/toastr.min.js"></script>
+
+<!-- Movie Add -form -->
+<div class="registration-form">
+    <div class="container">
+        <div class="dreamcrub">
+            <ul class="breadcrumbs">
+                <li class="home">
+                    <a href="@Url.Action("Index","Home")" title="Go to Home Page">Home</a>&nbsp;
+                    <span>&gt;</span>
+                </li>
+                <li class="women">
+                    Add Movies(Admin)
+                </li>
+            </ul>
+
+
+
+            <div class="clearfix"></div>
+        </div>
+        @{
+            if (@ViewBag.Status == "Movie was added successfully")
+            {
+             
+                 <script>toastr.success('Movie Added Successfully','Successful');</script>
+            }
+        }
+        
+        <h2>Add Movie</h2>
+        <div class="registration-grids">
+            <div class="">
+                <div class="reg">
+                    <p>Welcome, To Add a movie enter all the fields with genres also,By giving a large description will make user easier to understand</p>
+                    @using (Html.BeginForm("Add", "Movies", FormMethod.Post, new { enctype = "multipart/form-data" ,id="addForm"}))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(model => model.key,
+                     new { id = "hiddenRole", Value = IdGenerator.Generate(10) })
+                        
+                        <ul>
+                            <li class="text-info">@Html.DisplayNameFor(model => model.Title)</li>
+                            <li>@Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", required = "" } })</li>
+                            
+                        </ul>
+                        
+                        <ul>
+                            <li class="text-info" >@Html.DisplayNameFor(model => model.Description): </li>
+                            <li>@Html.TextAreaFor(model => model.Description,
+                         htmlAttributes: new { @class = "form-control", rows = "10", required = "" })</li>
+                            
+                        </ul>
+                        <ul>
+                            <li class="text-info">ReleaseDate: </li>
+                            <li>@Html.EditorFor(model => model.ReleaseDate, new { htmlAttributes = new { @class = "form-control", required = "" } })</li>
+                           
+                        </ul>
+                        <ul>
+                            <li class="text-info">Casts:</li>
+                            <li>@Html.EditorFor(model => model.Casts, new { htmlAttributes = new { @class = "form-control", required = "" } })</li>
+                            
+                        </ul>
+
+                        <ul>
+                            <li class="text-info">Industry:</li>
+                            <li>@Html.DropDownListFor(x => x.Industry, new List<SelectListItem>
+                            {
+                                new SelectListItem() {Text = "Choose", Value=""},
+                             new SelectListItem() {Text = "Hollywood", Value="hollywood"},
+                             new SelectListItem() {Text = "Hindi", Value="hindi"},
+                                new SelectListItem() {Text = "Tamil", Value="tamil"}
+                            }, htmlAttributes: new { @class = "form-control", required = "" }) </li>
+                            
+                        </ul>
+
+                        <ul>
+                            <li class="text-info">Genre:</li>
+                            <li>@Html.DropDownListFor(x => x.Genre, new List<SelectListItem>
+                            {
+                                new SelectListItem() {Text = "Choose", Value=""},
+                                new SelectListItem() {Text = "Action", Value="Action"},
+                             new SelectListItem() {Text = "Adventure", Value="Adventure"},
+                                new SelectListItem() {Text = "Comedy", Value="Comedy"},
+                                new SelectListItem() {Text = "Crime", Value="Crime"},
+                            new SelectListItem() {Text = "Historical", Value="Historical"},
+                                new SelectListItem() {Text = "Horror", Value="Horror"},
+                                new SelectListItem() {Text = "Mystery", Value="Mystery"},
+                                new SelectListItem() {Text = "Romance", Value="Romance"},
+                  new SelectListItem() {Text = "ScienceFiction", Value="Science Fiction"},
+                                new SelectListItem() {Text = "Thriller", Value="Thriller"},
+                            }, htmlAttributes: new { @class = "form-control", required = "" }) </li>
+                           
+                        </ul>
+                        
+                        
+                        <ul>
+                            <li class="text-info">Download Link:</li>
+                            <li>@Html.EditorFor(model => model.DownloadLink, new { htmlAttributes = new { @class = "form-control" } })</li>
+                           
+                        </ul>
+                      @Html.HiddenFor(model => model.PostedOn, new {  Value = DateTime.Now })
+
+
+                        <ul>
+                            <li class="text-info">Uplad an Image:</li>
+                            <li>@*Just setting a default value for skipping model errors*@
+                                @Html.HiddenFor(model => model.image,
+                     new { id = "hiddenRole", Value = "default" })
+                                @Html.HiddenFor(model => model.NamePosition,
+                     new { id = "hiddenRole", Value = "default" })
+                            <img id="preview" src="placeholder.png" style="display:none" height="200px" width="200px" />
+                                <input type="file" name="file" onchange="previewImage(this)" accept="image/*" data-parsley-max-file-size="400" required=""/></li>
+                           
+                        </ul>
+                        
+                        
+                        <input type="submit" value="add">
+                        
+                    }
+                </div>
+            </div>
+            
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!-- Movie Add-form -->
+
+@*Script for Loading Image PReview Before Upload*@
+<script type="text/javascript">
+
+    function previewImage(input) {
+        var preview = document.getElementById('preview');
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                preview.style.display = "block";
+                preview.setAttribute('src', e.target.result);
+
+            }
+            reader.readAsDataURL(input.files[0]);
+
+
+        } else {
+            preview.style.display = "none";
+            preview.setAttribute('src', 'placeholder.png');
+
+
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    $(function () {
+        $('#addForm').parsley().on('field:validated', function () {
+            var ok = $('.parsley-error').length === 0;
+            $('.bs-callout-info').toggleClass('hidden', !ok);
+            $('.bs-callout-warning').toggleClass('hidden', ok);
+        });
+
+    });
+    window.Parsley.addValidator('maxFileSize', {
+        validateString: function (_value, maxSize, parsleyInstance) {
+            if (!window.FormData) {
+                alert('You are making all developpers in the world cringe. Upgrade your browser!');
+                return true;
+            }
+            var files = parsleyInstance.$element[0].files;
+            return files.length != 1 || files[0].size <= maxSize * 1024;
+        },
+        requirementType: 'integer',
+        messages: {
+            en: 'This file should not be larger than %s Kb',
+            fr: "Ce fichier est plus grand que %s Kb."
+        }
+    });
+</script>

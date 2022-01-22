@@ -1,0 +1,387 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title -Movie Centre</title>
+    @*<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />*@
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    @*<script src="js/jquery.min.js"></script>*@
+    <script src="~/Scripts/jquery-2.2.0.min.js"></script>
+    
+    <!-- Custom Theme files -->
+    @*<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />*@
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Eshop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> 
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+    </script>
+    <!--webfont-->
+    <!-- for bootstrap working -->
+    @*<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>*@
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <!-- //for bootstrap working -->
+    <!-- cart -->
+    @*<script src="js/simpleCart.min.js"> </script>*@
+    <script src="~/Scripts/simpleCart.min.js"></script>
+    <!-- cart -->
+    <link href="~/Content/flexslider.css" rel="stylesheet" media="screen" />
+    @*<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />*@
+</head>
+<body>
+    <!-- header-section-starts -->
+
+    <div class="header ">
+        <div class="header-top-strip">
+            <div class="container">
+                <div class="header-top-left">
+                    <ul>
+                        <li><a href="@Url.Action("Login","Accounts")"><span class="glyphicon glyphicon-user"> </span>Login</a></li>
+                        <li><a href="@Url.Action("Register","Accounts")"><span class="glyphicon glyphicon-lock"> </span>Create an Account</a></li>
+                    </ul>
+                </div>
+                @*<div class="header-right">//this is code for cart
+                    <div class="cart box_1">
+                        <a href="checkout.html">
+                            <h3> <span class="simpleCart_total"> $0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>)<img src="~/images/bag.png" alt=""></h3>
+                        </a>
+                        <p><a href="javascript:;" class="simpleCart_empty">Empty cart</a></p>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>*@
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- header-section-ends -->
+    <div class="banner-top">
+        <div class="container">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="logo">
+                        <h1><a href="@Url.Action("Index","Home")"><span>M</span> -Centre</a></h1>
+                    </div>
+                </div>
+                <!--/.navbar-header-->
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">English <b class="caret"></b></a>
+                            <ul class="dropdown-menu multi-column columns-2">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <ul class="multi-column-dropdown">
+                                            <h6>Movie by Category</h6>
+                                        
+                                            <li>
+                                                @Html.ActionLink("Action", "MoviesIndex", "Movies",
+                new { industry = "hollywood", genreOrname = "Action", i = 0 }, null)
+                                            </li>
+
+                                            <li>
+                                                @Html.ActionLink("Comedy", "MoviesIndex", "Movies", new { industry = "hollywood", genreOrname = "Comedy", i = 0 }, null)
+                                            </li>
+
+                                            <li>
+                                                @Html.ActionLink("Crime", "MoviesIndex", "Movies",
+                         new { industry = "hollywood", genreOrname = "Crime", i = 0 }, null)
+                                            </li>
+
+                                            <li>
+                                                @Html.ActionLink("Historical", "MoviesIndex", "Movies",
+                         new { industry = "hollywood", genreOrname = "Historical", i = 0 }, null)
+                                            </li>
+                                            <li>
+                                                @Html.ActionLink("Horror", "MoviesIndex", "Movies",
+                         new { industry = "hollywood", genreOrname = "Horror", i = 0 }, null)
+                                            </li>
+                                            <li>
+                                                @Html.ActionLink("Mystery", "MoviesIndex", "Movies",
+                         new { industry = "hollywood", genreOrname = "Mystery", i = 0 }, null)
+                                            </li>
+                                            <li>
+                                                @Html.ActionLink("Romance", "MoviesIndex", "Movies",
+                         new { industry = "hollywood", genreOrname = "Romance", i = 0 }, null)
+                                            </li>
+                                            <li>
+                                                @Html.ActionLink("Science Fiction", "MoviesIndex", "Movies",
+                         new { industry = "hollywood", genreOrname = "Science Fiction", i = 0 }, null)
+                                            </li>
+                                            <li>
+                                                @Html.ActionLink("Thriller", "MoviesIndex", "Movies",
+                         new { industry = "hollywood", genreOrname = "Thriller", i = 0 }, null)
+
+                                            </li>  
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <ul class="multi-column-dropdown">
+                                            <h6>Films By Name</h6>
+                                            
+                                            <li>@Html.ActionLink("A-E", "MoviesIndex", "Movies",
+                         new { industry = "hollywood", genreOrname = "AE", i = 1 }, null)</li>
+                                            <li>@Html.ActionLink("F-J", "MoviesIndex", "Movies",
+                         new { industry = "hollywood", genreOrname = "FJ", i = 1 }, null)</li>
+                                            <li>@Html.ActionLink("K-O", "MoviesIndex", "Movies",
+                         new { industry = "hollywood", genreOrname = "KO", i = 1 }, null)</li>
+                                            <li>@Html.ActionLink("P-T", "MoviesIndex", "Movies",
+                         new { industry = "hollywood", genreOrname = "PT", i = 1 }, null)</li>
+                                            <li>@Html.ActionLink("U-Z", "MoviesIndex", "Movies",
+                         new { industry = "hollywood", genreOrname = "UZ", i = 1 }, null)</li>
+                                            
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="clearfix"></div>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hindi <b class="caret"></b></a>
+                            <ul class="dropdown-menu multi-column columns-2">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <ul class="multi-column-dropdown">
+                                            <h6>Movie by Category</h6>
+                                            <li>
+                                                @Html.ActionLink("Action", "MoviesIndex", "Movies",
+                new { industry = "hindi", genreOrname = "Action", i = 0 }, null)
+                                            </li>
+
+                                            <li>
+                                                @Html.ActionLink("Comedy", "MoviesIndex", "Movies", new { industry = "hindi", genreOrname = "Comedy", i = 0 }, null)
+                                            </li>
+
+                                            <li>
+                                                @Html.ActionLink("Crime", "MoviesIndex", "Movies",
+                         new { industry = "hindi", genreOrname = "Crime", i = 0 }, null)
+                                            </li>
+
+                                            <li>
+                                                @Html.ActionLink("Historical", "MoviesIndex", "Movies",
+                         new { industry = "hindi", genreOrname = "Historical", i = 0 }, null)
+                                            </li>
+                                            <li>
+                                                @Html.ActionLink("Horror", "MoviesIndex", "Movies",
+                         new { industry = "hindi", genreOrname = "Horror", i = 0 }, null)
+                                            </li>
+                                            <li>
+                                                @Html.ActionLink("Mystery", "MoviesIndex", "Movies",
+                         new { industry = "hindi", genreOrname = "Mystery", i = 0 }, null)
+                                            </li>
+                                            <li>
+                                                @Html.ActionLink("Romance", "MoviesIndex", "Movies",
+                         new { industry = "hindi", genreOrname = "Romance", i = 0 }, null)
+                                            </li>
+                                            <li>
+                                                @Html.ActionLink("Science Fiction", "MoviesIndex", "Movies",
+                         new { industry = "hindi", genreOrname = "Science Fiction", i = 0 }, null)
+                                            </li>
+                                            <li>
+                                                @Html.ActionLink("Thriller", "MoviesIndex", "Movies",
+                         new { industry = "hindi", genreOrname = "Thriller", i = 0 }, null)
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <ul class="multi-column-dropdown">
+                                            <h6>Films By Name</h6>
+                                            <li>
+                                                @Html.ActionLink("A-E", "MoviesIndex", "Movies",
+                         new { industry = "hindi", genreOrname = "AE", i = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("F-J", "MoviesIndex", "Movies",
+                         new { industry = "hindi", genreOrname = "FJ", i = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("K-O", "MoviesIndex", "Movies",
+                         new { industry = "hindi", genreOrname = "KO", i = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("P-T", "MoviesIndex", "Movies",
+                         new { industry = "hindi", genreOrname = "PT", i = 1 }, null)
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("U-Z", "MoviesIndex", "Movies",
+                         new { industry = "hindi", genreOrname = "UZ", i = 1 }, null)
+                                        </li>
+
+                                        </ul>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tamil <b class="caret"></b></a>
+                            <ul class="dropdown-menu multi-column columns-2">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <ul class="multi-column-dropdown">
+                                            <h6>Movie by Category</h6>
+                                            <li>
+                                                @Html.ActionLink("Action", "MoviesIndex", "Movies",
+                new { industry = "tamil", genreOrname = "Action", i = 0 }, null)
+                                            </li>
+
+                                            <li>
+                                                @Html.ActionLink("Comedy", "MoviesIndex", "Movies", new { industry = "tamil", genreOrname = "Comedy", i = 0 }, null)
+                                            </li>
+
+                                            <li>
+                                                @Html.ActionLink("Crime", "MoviesIndex", "Movies",
+                         new { industry = "tamil", genreOrname = "Crime", i = 0 }, null)
+                                            </li>
+
+                                            <li>
+                                                @Html.ActionLink("Historical", "MoviesIndex", "Movies",
+                         new { industry = "tamil", genreOrname = "Historical", i = 0 }, null)
+                                            </li>
+                                            <li>
+                                                @Html.ActionLink("Horror", "MoviesIndex", "Movies",
+                         new { industry = "tamil", genreOrname = "Horror", i = 0 }, null)
+                                            </li>
+                                            <li>
+                                                @Html.ActionLink("Mystery", "MoviesIndex", "Movies",
+                         new { industry = "tamil", genreOrname = "Mystery", i = 0 }, null)
+                                            </li>
+                                            <li>
+                                                @Html.ActionLink("Romance", "MoviesIndex", "Movies",
+                         new { industry = "tamil", genreOrname = "Romance", i = 0 }, null)
+                                            </li>
+                                            <li>
+                                                @Html.ActionLink("Science Fiction", "MoviesIndex", "Movies",
+                         new { industry = "tamil", genreOrname = "Science Fiction", i = 0 }, null)
+                                            </li>
+                                            <li>
+                                                @Html.ActionLink("Thriller", "MoviesIndex", "Movies",
+                         new { industry = "tamil", genreOrname = "Thriller", i = 0 }, null)
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">admin <b class="caret"></b></a>
+                            <ul class="dropdown-menu multi-column columns-2">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <ul class="multi-column-dropdown">
+                                            <h6>Admin Roles</h6>
+                                            <li><a href="@Url.Action("Add","Movies")">Insert a Movie</a></li>
+                                            <li><a href="@Url.Action("ShowList","Movies")">Update or Delete a Movie</a></li>
+                                         
+                                            
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="clearfix"></div>
+                                </div>
+                            </ul>
+                        </li>
+                        <li><a href="@Url.Action("Contact","Home")">CONTACT</a></li>
+                    </ul>
+                </div>
+                <!--/.navbar-collapse-->
+            </nav>
+            <!--/.navbar-->
+        </div>
+    </div>
+
+        @RenderBody()
+    
+
+    <div class="news-letter">
+        
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="footer_top">
+                <div class="span_of_4">
+                    <div class="col-md-3 span1_of_4">
+                        <h4>Shop</h4>
+                        <ul class="f_nav">
+                            <li><a href="#">new arrivals</a></li>
+                            <li><a href="#">men</a></li>
+                            <li><a href="#">women</a></li>
+                            <li><a href="#">accessories</a></li>
+                            <li><a href="#">kids</a></li>
+                            <li><a href="#">brands</a></li>
+                            <li><a href="#">trends</a></li>
+                            <li><a href="#">sale</a></li>
+                            <li><a href="#">style videos</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 span1_of_4">
+                        <h4>help</h4>
+                        <ul class="f_nav">
+                            <li><a href="#">frequently asked  questions</a></li>
+                            <li><a href="#">men</a></li>
+                            <li><a href="#">women</a></li>
+                            <li><a href="#">accessories</a></li>
+                            <li><a href="#">kids</a></li>
+                            <li><a href="#">brands</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 span1_of_4">
+                        <h4>account</h4>
+                        <ul class="f_nav">
+                            <li><a href="account.html">login</a></li>
+                            <li><a href="register.html">create an account</a></li>
+                            <li><a href="#">create wishlist</a></li>
+                            <li><a href="checkout.html">my shopping bag</a></li>
+                            <li><a href="#">brands</a></li>
+                            <li><a href="#">create wishlist</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 span1_of_4">
+                        <h4>popular</h4>
+                        <ul class="f_nav">
+                            <li><a href="#">new arrivals</a></li>
+                            <li><a href="#">men</a></li>
+                            <li><a href="#">women</a></li>
+                            <li><a href="#">accessories</a></li>
+                            <li><a href="#">kids</a></li>
+                            <li><a href="#">brands</a></li>
+                            <li><a href="#">trends</a></li>
+                            <li><a href="#">sale</a></li>
+                            <li><a href="#">style videos</a></li>
+                            <li><a href="#">login</a></li>
+                            <li><a href="#">brands</a></li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="cards text-center">
+                <img src="~/images/cards.jpg" alt="" />
+            </div>
+            <div class="copyright text-center">
+                <p>© 2016 Eshop. All Rights Reserved </p>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

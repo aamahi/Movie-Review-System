@@ -1,0 +1,176 @@
+﻿@model movietest1.Models.Movie
+@{
+    ViewBag.Title = "EditMovie";
+}
+<script src="http://parsleyjs.org/dist/parsley.min.js"></script>
+
+<link rel="stylesheet" href="http://parsleyjs.org/src/parsley.css">
+
+<div class="registration-form">
+    
+    <div class="container">
+       
+     <h1>@ViewBag.Status</h1>   
+        <div class="registration-grids">
+            <div class="">
+                <div class="reg">
+                    <p>Welcome, To Add a movie enter all the fields with genres also,By giving a large description will make user easier to understand</p>
+                    @using (Html.BeginForm("EditMovie", "Movies", FormMethod.Post, new { enctype = "multipart/form-data",id="editForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(model => model.key)
+                        @Html.HiddenFor(model => model.PostedOn)
+                        <ul>
+                            <li class="text-info">@Html.DisplayNameFor(model => model.Title)</li>
+                            <li>@Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", required = "" } })</li>
+                            
+                        </ul>
+
+                        <ul>
+                            <li class="text-info">@Html.DisplayNameFor(model => model.Description): </li>
+                            <li>
+                                @Html.TextAreaFor(model => model.Description,
+                         htmlAttributes: new { @class = "form-control", rows = "10", required = "" })
+                            </li>
+                            
+                        </ul>
+                        <ul>
+                            <li class="text-info">ReleaseDate: </li>
+                            <li>@Html.EditorFor(model => model.ReleaseDate, new { htmlAttributes = new { @class = "form-control", required = "" } })</li>
+                            
+                        </ul>
+                        
+                        <ul>
+                            <li class="text-info">Casts:</li>
+                            <li>@Html.EditorFor(model => model.Casts, new { htmlAttributes = new { @class = "form-control", required = "" } })</li>
+                            
+                        </ul>
+
+                        <ul>
+                            <li class="text-info">Industry:</li>
+                            <li>@Html.DropDownListFor(x => x.Industry, new List<SelectListItem>
+                            {
+                              
+                             new SelectListItem() {Text = "Hollywood", Value="hollywood"},
+                             new SelectListItem() {Text = "Hindi", Value="hindi"},
+                             new SelectListItem() {Text = "Tamil", Value="tamil"}
+                            }, htmlAttributes: new { @class = "form-control", required = "" }) </li>
+                            
+                        </ul>
+                        <ul>
+                            <li class="text-info">Genre:</li>
+                            <li>
+                                @Html.DropDownListFor(x => x.Genre, new List<SelectListItem>
+                            {
+                                
+                                new SelectListItem() {Text = "Action", Value="Action"},
+                             new SelectListItem() {Text = "Adventure", Value="Adventure"},
+                                new SelectListItem() {Text = "Comedy", Value="Comedy"},
+                                new SelectListItem() {Text = "Crime", Value="Crime"},
+                            new SelectListItem() {Text = "Historical", Value="Historical"},
+                                new SelectListItem() {Text = "Horror", Value="Horror"},
+                                new SelectListItem() {Text = "Mystery", Value="Mystery"},
+                                new SelectListItem() {Text = "Romance", Value="Romance"},
+                  new SelectListItem() {Text = "SceinceFiction", Value="Sceince Fiction"},
+                                new SelectListItem() {Text = "Thriller", Value="Thriller"},
+                            }, htmlAttributes: new { @class = "form-control", required = "" })
+                            </li>
+                            
+                        </ul>
+
+                        <ul>
+                            <li class="text-info">Download Link:</li>
+                            <li>@Html.EditorFor(model => model.DownloadLink, new { htmlAttributes = new { @class = "form-control" } })</li>
+                            
+                        </ul>
+                    @Html.HiddenFor(model => model.NamePosition)
+                        <ul>
+                            <li class="text-info">Uplad an Image:</li>
+                            <li>
+                                @*Just setting a default value for skipping model errors*@
+                                @Html.HiddenFor(model => model.image)
+
+                                <img id="preview" src=@Model.image  height="200px" width="200px" />
+                                <br />
+                                <input id="cbutton" type="button" value="Change image"/>
+                            </li>
+                            
+                        </ul>
+
+
+                        <input type="submit" value="SUBMIT">
+
+                    }
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+@*Script for Loading Image PReview Before Upload*@
+<script type="text/javascript">
+
+    function previewImage(input) {
+        
+        var preview = document.getElementById('preview');
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                
+                preview.setAttribute('src', e.target.result);
+
+            }
+            reader.readAsDataURL(input.files[0]);
+            
+
+        } else {
+            
+            preview.setAttribute('src', 'placeholder.png');
+
+
+        }
+    }
+</script>
+<script type="text/javascript">
+    $(function () {
+        $('#editForm').parsley().on('field:validated', function () {
+            var ok = $('.parsley-error').length === 0;
+            $('.bs-callout-info').toggleClass('hidden', !ok);
+            $('.bs-callout-warning').toggleClass('hidden', ok);
+        });
+
+    });
+    window.Parsley.addValidator('maxFileSize', {
+        validateString: function (_value, maxSize, parsleyInstance) {
+            if (!window.FormData) {
+                alert('You are making all developpers in the world cringe. Upgrade your browser!');
+                return true;
+            }
+            var files = parsleyInstance.$element[0].files;
+            return files.length != 1 || files[0].size <= maxSize * 1024;
+        },
+        requirementType: 'integer',
+        messages: {
+            en: 'This file should not be larger than %s Kb',
+            fr: "Ce fichier est plus grand que %s Kb."
+        }
+    });
+</script>
+<script type='text/javascript'>
+    $(document).ready(function () {
+
+        $('#cbutton').click(function () {
+            $('#cbutton').after('<input type="file" name="file" id="file" onchange="previewImage(this)" accept="image/*" data-parsley-max-file-size="400"  required="" />');
+            $('#file').click();
+            
+            $('#cbutton').hide();
+           // alert("hello");
+            
+
+        });
+
+    });
+</script>
